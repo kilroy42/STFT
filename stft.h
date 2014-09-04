@@ -33,11 +33,16 @@ inline void SPITransfer(uint8_t data)
 #define RGB(r, g, b)			( (b>>3) | ((g>>2)<<5) | ((r>>3)<<11) )
 //								(RGB1(r, g, b) | ((RGB0(r, g, b) << 8)))
 
-#define SETFONT(tft, __font__)	tft.setFont(font ## __font__ ## Data, font ## __font__ ## Offsets, font ## __font__ ## Height, font ## __font__ ## FirstChar)
+#define SETFONT(tft, __font__)	tft.setFont(font ## __font__ ## Data, font ## __font__ ## Offsets, font ## __font__ ## Height, font ## __font__ ## FirstChar, font ## __font__ ## Type)
 
 #define ALIGN_LEFT				0
 #define ALIGN_RIGHT				1
 #define ALIGN_CENTER			2
+
+#define ROTATE0					0
+#define ROTATE90				1
+#define ROTATE180				2
+#define ROTATE270				3
 
 #ifdef MODEL_ILI9341
 #define ILI9341	0
@@ -77,7 +82,7 @@ class STFT
 	public:
 
 		uint8_t				fcl, fch;
-		uint8_t				fontSize;
+		uint8_t				fontSize, fontType;
 		uint8_t				width;
 		uint16_t			height;
 
@@ -102,7 +107,7 @@ class STFT
 		void				setTextBackColor(uint16_t color);
 		void				setTextColor(uint16_t color);
 
-		void				setFont(uint8_t* data, uint16_t* offsets, uint8_t size, uint8_t firstChar);
+		void				setFont(uint8_t* data, uint16_t* offsets, uint8_t size, uint8_t firstChar, uint8_t type);
 		uint16_t			getStringWidth(char* txt);
 
 		uint8_t				drawChar(uint8_t startx, uint16_t starty, uint8_t c, uint8_t rotate, uint16_t limitX);

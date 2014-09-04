@@ -257,12 +257,13 @@ void STFT::setColor(uint16_t rgb)
 	fch = rgb>>8;
 }
 
-void STFT::setFont(uint8_t* data, uint16_t* offsets, uint8_t size, uint8_t firstChar)
+void STFT::setFont(uint8_t* data, uint16_t* offsets, uint8_t size, uint8_t firstChar, uint8_t type)
 {
 	fontData = data;
 	fontOffsets = offsets;
 	fontSize = size;
 	fontFirstChar = firstChar;
+	fontType = type;
 	updateTextColor();
 }
 
@@ -417,7 +418,7 @@ uint8_t STFT::drawChar(uint8_t startx, uint16_t starty, uint8_t c, uint8_t rotat
 	if (limitX > sizeX)
 		limitX = sizeX;
 
-	switch(rotate)
+	switch(rotate + fontType)
 	{
 #ifdef TEXT_ROTATE_0
 		// 0°
@@ -872,7 +873,7 @@ uint8_t STFT::drawChar(uint8_t startx, uint16_t starty, uint8_t c, uint8_t rotat
 
 uint8_t STFT::drawString(uint8_t startx, uint16_t starty, char* txt, uint8_t rotate)
 {
-	switch(rotate&3)
+	switch(rotate)
 	{
 #if (!defined NO_TEXT_ROTATE_0) && (!defined NO_TEXT_ROTATE_0_RLE)
 		case 0:
@@ -968,7 +969,7 @@ uint8_t STFT::drawStringLimit(uint8_t startx, uint16_t starty, char* txt, uint8_
 	}
 	else lineWidth = 0;
 
-	switch(rotate&3)
+	switch(rotate)
 	{
 #if (!defined NO_TEXT_ROTATE_0) && (!defined NO_TEXT_ROTATE_0_RLE)
 		case 0:

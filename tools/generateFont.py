@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import cairo
-import pango
-import pangocairo
-import sys
-import argparse
+import cairo, pango, pangocairo
+
+import argparse, os, sys
 
 
 def RLE(data):
@@ -118,7 +116,7 @@ layout = pangocairo_context.create_layout()
 font = pango.FontDescription(args.fontname + ' ' + str(args.size))
 layout.set_font_description(font)
 
-name = args.fontname.lower().rstrip('.ttf').capitalize()
+name = os.path.split(args.fontname)[1].lower().rstrip('.ttf').capitalize()
 
 allChars = u''.join([chr(c) for c in range(start, end+1)]) + (args.extrachars or u'')
 
@@ -199,16 +197,18 @@ for c in allChars:
 
 offsets.append(sum([len(p)-1 for p in font]))
 
-print """#define font%(name)s%(size)sSize          %(size)i
-#define font%(name)s%(size)sFirstChar     %(start)i
-#define font%(name)s%(size)sHeight        %(height)i
-#define font%(name)s%(size)sMaxWidth		%(maxWidth)i
+print """#define font%(name)s%(size)sSize  %(size)i
+#define font%(name)s%(size)sFirstChar %(start)i
+#define font%(name)s%(size)sHeight %(height)i
+#define font%(name)s%(size)sMaxWidth %(maxWidth)i
+#define font%(name)s%(size)sType %(type)i
 """ % {
 	'name':				name,
 	'size':				args.size,
 	'start':			start,
 	'height':			maxHeight - allMinY,
 	'maxWidth':			maxWidth,
+	'type':				4 if args.algorithm == 'rle' else 0,
 }
 
 print 'uint16_t font'+name+str(args.size)+'Offsets[] PROGMEM = { ' + ', '.join([str(n) for n in offsets]) + ' }; // last value = size of font data'

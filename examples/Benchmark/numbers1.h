@@ -1,6 +1,7 @@
 #define fontArlrdbd56Size          56
 #define fontArlrdbd56FirstChar     48
 #define fontArlrdbd56Height        57
+#define fontArlrdbd56Type          4
 
 uint16_t fontArlrdbd56Offsets[] PROGMEM = { 0, 535, 844, 1234, 1684, 2114, 2517, 3056, 3370, 3955, 4499, 4573 }; // last value = size of font data
 uint8_t  fontArlrdbd56Data[]    PROGMEM = {

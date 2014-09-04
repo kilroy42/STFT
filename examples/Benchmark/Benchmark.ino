@@ -75,22 +75,22 @@ void bench1()
         
         begin("Draw text 100 times (rotated 0 degrees)");
         for (i = 0; i<100; i++)
-                tft.drawStringLimit(0, i, txt, 0, tft.width, ALIGN_LEFT);        
+                tft.drawStringLimit(0, i, txt, ROTATE0, tft.width, ALIGN_LEFT);        
         show();
 
         begin("Draw text 100 times (rotated 90 degrees)");
         for (i = 0; i<100; i++)
-                tft.drawStringLimit(tft.width-1-i, 0, txt, 1, tft.height, ALIGN_LEFT);
+                tft.drawStringLimit(tft.width-1-i, 0, txt, ROTATE90, tft.height, ALIGN_LEFT);
         show();
         
         begin("Draw text 100 times (rotated 180 degrees)");
         for (i = 0; i<100; i++)
-                tft.drawStringLimit(tft.width-1, tft.height-1-i, txt, 2, tft.width, ALIGN_LEFT);
+                tft.drawStringLimit(tft.width-1, tft.height-1-i, txt, ROTATE180, tft.width, ALIGN_LEFT);
         show();
 
         begin("Draw text 100 times (rotated 270 degrees)");
         for (i = 0; i<100; i++)
-                tft.drawStringLimit(i, tft.height-1, txt, 3, tft.height, ALIGN_LEFT);
+                tft.drawStringLimit(i, tft.height-1, txt, ROTATE270, tft.height, ALIGN_LEFT);
         show();
 }
 
@@ -104,12 +104,12 @@ void bench2()
         
         begin("Draw big text 100 times (rotated 0 degrees)");
         for (i = 0; i<100; i++)
-                tft.drawStringLimit(0, i, txt, 4, tft.width, ALIGN_CENTER);
+                tft.drawStringLimit(0, i, txt, ROTATE0, tft.width, ALIGN_CENTER);
         show();
 
         begin("Draw big text 100 times (rotated 180 degrees)");
         for (i = 0; i<100; i++)
-                tft.drawStringLimit(tft.width-1, tft.height-1-i, txt, 6, tft.width, ALIGN_CENTER);
+                tft.drawStringLimit(tft.width-1, tft.height-1-i, txt, ROTATE180, tft.width, ALIGN_CENTER);
         show();
 }
 

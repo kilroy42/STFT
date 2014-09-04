@@ -118,35 +118,35 @@ void demo3()
 	SETFONT(tft, Arlrdbd12);
 
 	// All rotated 0°
-	tft.drawStringLimit(30, y, abcs, 0, tft.width-60, ALIGN_LEFT);
+	tft.drawStringLimit(30, y, abcs, ROTATE0, tft.width-60, ALIGN_LEFT);
 	y+= tft.fontSize + 1;
-	tft.drawStringLimit(30, y, abcs, 0, tft.width-60, ALIGN_CENTER);
+	tft.drawStringLimit(30, y, abcs, ROTATE0, tft.width-60, ALIGN_CENTER);
 	y+= tft.fontSize + 1;
-	tft.drawStringLimit(30, y, abcs, 0, tft.width-60, ALIGN_RIGHT);
+	tft.drawStringLimit(30, y, abcs, ROTATE0, tft.width-60, ALIGN_RIGHT);
 	y+= tft.fontSize + 1;
 
-	tft.drawStringLimit(30, y, abc, 0, tft.width-60, ALIGN_LEFT);
+	tft.drawStringLimit(30, y, abc, ROTATE0, tft.width-60, ALIGN_LEFT);
 	y+= tft.fontSize + 1;
     
 	// All rotated 90°
-	tft.drawStringLimit(tft.width-2, 1, abc, 1, tft.height-2, ALIGN_CENTER);
+	tft.drawStringLimit(tft.width-2, 1, abc, ROTATE90, tft.height-2, ALIGN_CENTER);
 
 	// All rotated 180°
-	tft.drawStringLimit(tft.width-31, tft.height-2, abcs, 2, tft.width-60, ALIGN_CENTER);
+	tft.drawStringLimit(tft.width-31, tft.height-2, abcs, ROTATE180, tft.width-60, ALIGN_CENTER);
 
 	// All rotated 270°
-	tft.drawStringLimit(1, tft.height-2, abc, 3, tft.height-2, ALIGN_CENTER);
+	tft.drawStringLimit(1, tft.height-2, abc, ROTATE270, tft.height-2, ALIGN_CENTER);
         
 	// Big Font
 	SETFONT(tft, Arlrdbd56);
 
 	// All rotated 0°
-	tft.drawStringLimit(22, y, time, 4, tft.width-44, ALIGN_CENTER);
+	tft.drawStringLimit(22, y, time, ROTATE0, tft.width-44, ALIGN_CENTER);
 
         if (tft.width>=240)
         {
         	// All rotated 180°
-	        tft.drawStringLimit(210, 280, time, 6, 180, ALIGN_CENTER);
+	        tft.drawStringLimit(210, 280, time, ROTATE180, 180, ALIGN_CENTER);
         }
 }
 
