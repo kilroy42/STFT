@@ -25,7 +25,7 @@ Compatibility
 -------------
 
 * Has been tested with ATMega328P @ 16 MHz
-* If the chip is not running at a different frequence, disable FASTSPI
+* If the chip is running at a different frequency, disable FASTSPI
 
 Configuration
 -------------
@@ -125,3 +125,7 @@ Rotation can be performed 0, 90, 180, 270 degrees
 A simple RLE compression is applied. Fonts need to be bigger (18-... points) to be effective
 
 Rotation can only be performed 0 and 180 degrees
+
+#### Unpacked fonts
+
+These can be generated, but the library cannot use them.
