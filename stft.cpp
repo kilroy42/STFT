@@ -257,10 +257,10 @@ void STFT::setColor(uint16_t rgb)
 	fch = rgb>>8;
 }
 
-void STFT::setFont(uint8_t* data, uint16_t* offsets, uint8_t size, uint8_t firstChar, uint8_t type)
+void STFT::setFont(const uint8_t* data, const uint16_t* offsets, uint8_t size, uint8_t firstChar, uint8_t type)
 {
-	fontData = data;
-	fontOffsets = offsets;
+	fontData = (uint8_t*)data;
+	fontOffsets = (uint16_t*)offsets;
 	fontSize = size;
 	fontFirstChar = firstChar;
 	fontType = type;

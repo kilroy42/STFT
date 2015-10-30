@@ -107,7 +107,7 @@ class STFT
 		void				setTextBackColor(uint16_t color);
 		void				setTextColor(uint16_t color);
 
-		void				setFont(uint8_t* data, uint16_t* offsets, uint8_t size, uint8_t firstChar, uint8_t type);
+		void				setFont(const uint8_t* data, const uint16_t* offsets, uint8_t size, uint8_t firstChar, uint8_t type);
 		uint16_t			getStringWidth(char* txt);
 
 		uint8_t				drawChar(uint8_t startx, uint16_t starty, uint8_t c, uint8_t rotate, uint16_t limitX);
